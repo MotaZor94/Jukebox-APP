@@ -25,6 +25,7 @@ class JukeboxController extends Controller
         $song = DB::selectOne($query, [
             $request->input('id')
         ]);
+
         } else {
             //this is creating a new song
             $song = (object) [
@@ -54,7 +55,7 @@ class JukeboxController extends Controller
             $song->added_at = date("Y-m-d H:i:s");
 
             if($song->id) {
-                $song = "
+                $query = "
                 UPDATE `jukebox`
                 SET `name`   = ?,
                     `code`   = ?,
@@ -67,7 +68,8 @@ class JukeboxController extends Controller
                 $song->name,
                 $song->code,
                 $song->author,
-                $song->added_at
+                $song->added_at,
+                $song->id
             ]);
             } else {
                 //INSERTING A NEW SONG
@@ -90,7 +92,7 @@ class JukeboxController extends Controller
 
             Session::flash('success_message','Song was succesfully saved');
 
-            return redirect('jukebox/jukebox?='.$song->id);
+            return redirect('list');
 
             
 
@@ -104,19 +106,24 @@ class JukeboxController extends Controller
 
         $list_of_songs = DB::select($query);
 
+
         $edit_playlist = view('jukebox/jukebox', [
             'song' => $song
         ]);
 
         return view('html' ,[
             'playlist' => $edit_playlist,
-            'list' => $list_of_songs
+            'list' => $list_of_songs,
+
+            
             
         ]);
     }
 
     public function listing(request $request)
     {
+
+        
         $query = "
         SELECT * 
         FROM `jukebox`
@@ -125,10 +132,43 @@ class JukeboxController extends Controller
 
         $list_of_songs = DB::select($query);
 
-        return view('list', [
-            'all' => $list_of_songs
+        $query = "
+        SELECT *
+        FROM `author`
+        WHERE 1
+        ";
+
+        $list_of_authors = DB::select($query);
+        $authors_by_ids = [];
+        foreach($list_of_authors as $author){
+            $authors_by_ids[$author->id]= $author;
+        }
+         //$authors_by_ids[$song->author_by_id];
+
+        return view('list',[
+            'all' => $list_of_songs,
+            'authors' => $authors_by_ids
         ]);
 
     }
 
+    public function delete(Request $request)
+    {
+        if($request->has('id')) {
+            $id = $request->input('id');
+            $query = "DELETE
+                FROM `jukebox`
+                WHERE `id` = ?
+                ";
+
+                $song = DB::selectOne($query, [$id]);
+
+                $deleted_song = view('jukebox/jukebox' , [
+                    'song' => $song
+                ]);
+
+                return redirect('list');
+        }
+        
+    }
 }

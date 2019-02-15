@@ -14,29 +14,33 @@
     </div>
 <?php endif ; ?>
 
-
+<div class="form">
 <form action="" method="post">
 
     <?= csrf_field() ?>
 
+    <h2>SONG EDITOR 3000</h2>
+
+
 
     <div class="form-group">
-        <label for="">Song Name:</label>
-        <input type="text" name="name" value="">
+        <label for="" class="editing">Song Name:</label>
+        <input type="text" class="inputs"  name="name" value="<?= $song->name ?>">
     </div>
 
     <div class="form-group">
-        <label for="">Song Code::</label>
-        <input type="text" name="code" value="">
+        <label class="editing" for="">Song Code:</label>
+        <input type="text" class="inputs" name="code" value="<?= $song->code ?>">
     </div>
 
     <div class="form-group">
-        <label for="">Song author:</label>
-        <input type="text" name="author" value="">
+        <label for="" class="editing">Song author:</label>
+        <input type="text" class="inputs" name="author" value="<?= $song->author ?>">
     </div>
     
     <div>
-    <input type="submit" value ="add">
+    <input type="submit" class="nav" value ="add">
+    </div>
     </div>
 
 </form>

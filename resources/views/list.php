@@ -13,16 +13,23 @@
     </div>
     <br>
 
-    <?php foreach($all as $song) :?>
+    <main>
 
-        <div class="song">
-            <iframe class="video" src="https://www.youtube.com/embed/<?= $song->code ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <h2>Addet at:        <?= $song->added_at ?></h2>
-            <h2 class>Name of song:  <?= $song->name ?></h2>
-            <h2>Author:        <?= $song->author ?></h2>
-        <a href="/jukebox"><input type="submit" name="edit" value="edit"></a>
-        <a href="/jukebox"> <input type="submit" name="delete" value="delete"></a>
-   </div>   
+        <?php foreach($all as $song) :?>
+
+            <div class="song">
+                <iframe class="video" src="https://www.youtube.com/embed/<?= $song->code ?>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <h2 class><?= $song->name ?></h2>
+                <h2><?= $song->author ?></h2>
+                <h2><?= $song->added_at ?></h2>
+               <!-- </h2><// $song->author_by_id ? $authors[$song->author_by_id]->aname : "author unknown"</h2> -->
+                <div class="click">
+                    <a href=<?="/jukebox?id={$song->id}"?>><input type="submit" name="edit" value="edit"></a>
+                    <a href=<?="/delete/?id={$song->id}"?>><input type="submit" name="delete" value="delete" id="del"></a>
+                </div>
+            </div>   
        
 
-    <?php endforeach; ?>
+        <?php endforeach; ?>
+
+    </main>
