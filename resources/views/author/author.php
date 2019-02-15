@@ -21,23 +21,25 @@
 
 
     <div class="form-group">
-        <label for="">Song Name:</label>
-        <input type="text" name="name" value="">
+        <label for="">Author Name:</label>
+        <input type="text" name="aname" value="">
     </div>
 
     <div class="form-group">
-        <label for="">Song Code::</label>
-        <input type="text" name="code" value="">
+        <label for="">Year of birth:</label>
+        <input type="text" name="birth" value="">
     </div>
 
     <div class="form-group">
-        <label for="">Song author:</label>
-        <input type="text" name="author" value="">
+        <label for="">Biography:</label>
+        <input type="text" name="bio" value="">
     </div>
     
-    <div>
-    <input type="submit" value ="add">
+    <div class="form-group">
+        <label for="">Photo URL:</label>
+        <input type="text" name="photo" value="">
     </div>
-
+    <div>
+        <input type="submit"  value ="add author">
+    </div>
 </form>
-

@@ -131,13 +131,4 @@ class JukeboxController extends Controller
 
     }
 
-    public function deleting(request $request)
-    {
-        $query = "
-        DELETE * 
-        FROM `jukebox`
-        WHERE 1
-        ";
-
-    }
 }

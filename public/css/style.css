@@ -1,0 +1,94 @@
+*{
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'MyWebFont';
+    src:url("/css/Fipps-Regular.otf"); /* IE9 Compat Modes */
+  }
+
+  @font-face {
+    font-family: 'newone';
+    src:url("/css/prstartk.ttf"); /* IE9 Compat Modes */
+  }
+
+
+
+body {
+    margin: 0;
+    font-family: 'MyWebFont';
+    background-color:#2E2E2E;
+    display: flex;
+    flex-direction: column;
+}
+
+.log {
+    text-align: center;
+}
+
+.logo {
+    position: relative;
+    color: #3B98F7;
+    text-shadow: 3px 2px #EC3D60;
+    margin: 0;
+    padding: 0;
+    font-size: 6em;
+    
+}
+
+nav {
+    margin: 0 auto;
+    margin-top: 2em;
+    
+}
+
+.nav{
+    font-family: 'newone';
+    color:white;
+    background-color: #8A63D9;
+    padding: 1em;
+    text-decoration: none;
+    border-radius: 0.5em;
+
+}
+
+img {
+    padding-top: 0.3em;
+}
+
+.top {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: "newone";
+    top: 2em;
+}
+
+.bottom {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: "newone";
+    bottom: 3em;
+}
+
+
+.song {
+    background-color: white;
+    width: 20em;
+    height: 25em;
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    border-radius: 0.5em;
+    overflow: hidden;
+    font-family: 'Karla';
+
+    
+}
+
+
+
+

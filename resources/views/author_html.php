@@ -17,7 +17,7 @@
     </nav>
     <br>
 
-    <?= $playlist ?>
+    <?= $authors ?>
 
     
     

@@ -16,3 +16,9 @@ Route::post('/jukebox', 'JukeboxController@edit');
 
 Route::get('/list', 'JukeboxController@listing');
 Route::post('/list', 'JukeboxController@listing');
+
+Route::get('/author', 'AuthorController@edit');
+Route::post('/author', 'AuthorController@edit');
+
+Route::get('/authors', 'AuthorController@listing');
+Route::post('/authors', 'AuthorController@listing');
